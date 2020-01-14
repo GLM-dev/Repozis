@@ -1,0 +1,496 @@
+from tkinter import *
+from tkinter import ttk
+import xlrd
+
+root = Tk()
+root.geometry('750x300')
+root.config(bg="#40e3e0")
+root.title('Система учёта посещаемости учебного заведения')
+
+def n_w4(event):
+        window = Toplevel(root)
+        window.geometry('750x500')
+        window.config(bg="#40e3e0")
+        window.title('Пропуски за декабрь')
+
+        excel_data_file = xlrd.open_workbook('./Пропуски 1 года/Пропуски за Январь.xlsx')
+        sheet = excel_data_file.sheet_by_index(0)
+
+        batch_Names_wanted = []
+        batch_Names_wanted1 = []
+        batch_Names_wanted2 = []
+        batch_Names_wanted3 = []
+        batch_Names_wanted4 = []
+        batch_Names_wanted5 = []
+        batch_Names_wanted6 = []
+        batch_Names_wanted7 = []
+        batch_Names_wanted8 = []
+
+
+
+        row_number = sheet.nrows
+
+        if row_number > 0:
+            for row in range(0, row_number):
+                batch_Names_wanted.append(
+                    str(sheet.row(row)[0]).replace("text:", "").replace("'", "").replace(":", "").replace(".",
+                                                                                                          "").replace(
+                        "number", "").replace("0", "").replace("empty", ""))
+                batch_Names_wanted1.append(
+                    str(sheet.row(row)[1]).replace("empty", "").replace("text:", "").replace("'", "").replace(".", "").replace("number", "").replace(":", "").replace("0", ""))
+                batch_Names_wanted2.append(
+                    str(sheet.row(row)[2]).replace("empty", "").replace("text:", "").replace("'", "").replace(".", "").replace(
+                        "number", "").replace(":", "").replace("0",""))
+                #batch_Names_wanted3.append(
+                 #   str(sheet.row(row)[3]).replace("empty", "").replace("text:", "").replace("'", "").replace(".",
+                     #                                                                                         "").replace(
+                  #      "number", "").replace(":", "").replace("0",""))
+                #batch_Names_wanted4.append(
+                #    str(sheet.row(row)[4]).replace("empty", "").replace("text:", "").replace("'", "").replace(".",
+                      #                                                                                        "").replace(
+                 #       "number", "").replace(":", "").replace("0",""))
+                #batch_Names_wanted5.append(
+                 #   str(sheet.row(row)[5]).replace("empty", "").replace("text:", "").replace("'", "").replace(".",
+                 #                                                                                             "").replace(
+                  #      "number", "").replace(":", "").replace("0",""))
+                #batch_Names_wanted6.append(
+                 #   str(sheet.row(row)[6]).replace("empty", "").replace("text:", "").replace("'", "").replace(".",
+                  #                                                                                            "").replace(
+                  #      "number", "").replace(":", "").replace("0",""))
+                #batch_Names_wanted7.append(
+                 #   str(sheet.row(row)[7]).replace("empty", "").replace("text:", "").replace("'", "").replace(".",
+                   #                                                                                           "").replace(
+                  #      "number", "").replace(":", "").replace("0", ""))
+                #batch_Names_wanted8.append(
+                 #   str(sheet.row(row)[9]).replace("empty", "").replace("text:", "").replace("'", "").replace(".",
+                    #     "number", "").replace(":", "").replace("0",""))
+                #batch_Names_wanted9.append(
+                    #str(sheet.row(row)[9]).replace("empty", "").replace("text:", "").replace("'", "").replace(".",
+                                                                                                              #"").replace(
+                       # "number", "").replace(":", ""))
+
+
+        tab_control = ttk.Notebook(window)
+        tab1 = ttk.Frame(tab_control)
+        tab_control.add(tab1, text='ID,ИФ, Пропуски')
+
+        lbl1 = Label(tab1, text='\n'.join(batch_Names_wanted))
+        lbl1.place(x=0, y=0)
+        lbl2 = Label(tab1, text='\n'.join(batch_Names_wanted1))
+        lbl2.place(x=20, y=0)
+        lbl3 = Label(tab1, text='\n'.join(batch_Names_wanted2))
+        lbl3.place(x=210, y=0)
+        #lbl4 = Label(tab1, text='\n'.join(batch_Names_wanted3))
+        #lbl4.place(x=285, y=0)
+        #lbl5 = Label(tab1, text='\n'.join(batch_Names_wanted4))
+        #lbl5.place(x=315, y=0)
+        #lbl6 = Label(tab1, text='\n'.join(batch_Names_wanted5))
+        #lbl6.place(x=575, y=0)
+        #lbl7 = Label(tab1, text='\n'.join(batch_Names_wanted6))
+        #lbl7.place(x=365, y=0)
+        #lbl8 = Label(tab1, text='\n'.join(batch_Names_wanted7))
+        #lbl8.place(x=465, y=0)
+        #lbl9 = Label(tab1, text='\n'.join(batch_Names_wanted8))
+        #lbl9.place(x=520, y=0)
+
+        tab_control.pack(expand=1, fill='both')
+
+def n_w5(event):
+    window = Toplevel(root)
+    window.geometry('750x300')
+    window.config(bg="#40e3e0")
+    window.title('Февральские оценки')
+
+    excel_data_file = xlrd.open_workbook('./Оценки за 1 год/Оценки за Февраль.xlsx')
+    sheet = excel_data_file.sheet_by_index(0)
+
+    batch_Names_wanted = []
+    batch_Names_wanted1 = []
+    batch_Names_wanted2 = []
+    batch_Names_wanted3 = []
+    batch_Names_wanted4 = []
+    batch_Names_wanted5 = []
+    batch_Names_wanted6 = []
+    batch_Names_wanted7 = []
+    batch_Names_wanted8 = []
+
+    row_number = sheet.nrows
+
+    if row_number > 0:
+        for row in range(0, row_number):
+            batch_Names_wanted.append(
+                str(sheet.row(row)[0]).replace("text:", "").replace("'", "").replace(":", "").replace(".",
+                                                                                                      "").replace(
+                    "number", "").replace("0", "").replace("empty", ""))
+            batch_Names_wanted1.append(
+                str(sheet.row(row)[1]).replace("empty", "").replace("text:", "").replace("'", "").replace(".",
+                                                                                                          "").replace(
+                    "number", "").replace(":", "").replace("0", ""))
+            batch_Names_wanted2.append(
+                str(sheet.row(row)[2]).replace("empty", "").replace("text:", "").replace("'", "").replace(".",
+                                                                                                          "").replace(
+                    "number", "").replace(":", "").replace("0", ""))
+            batch_Names_wanted3.append(
+                str(sheet.row(row)[3]).replace("empty", "").replace("text:", "").replace("'", "").replace(".",
+                                                                                                          "").replace(
+                    "number", "").replace(":", "").replace("0", ""))
+            batch_Names_wanted4.append(
+                str(sheet.row(row)[4]).replace("empty", "").replace("text:", "").replace("'", "").replace(".",
+                                                                                                          "").replace(
+                    "number", "").replace(":", "").replace("0", ""))
+            batch_Names_wanted5.append(
+                str(sheet.row(row)[5]).replace("empty", "").replace("text:", "").replace("'", "").replace(".",
+                                                                                                          "").replace(
+                    "number", "").replace(":", "").replace("0", ""))
+            batch_Names_wanted6.append(
+                str(sheet.row(row)[6]).replace("empty", "").replace("text:", "").replace("'", "").replace(".",
+                                                                                                          "").replace(
+                    "number", "").replace(":", "").replace("0", ""))
+            batch_Names_wanted7.append(
+                str(sheet.row(row)[7]).replace("empty", "").replace("text:", "").replace("'", "").replace(".",
+                                                                                                          "").replace(
+                    "number", "").replace(":", "").replace("0", ""))
+            batch_Names_wanted8.append(
+                str(sheet.row(row)[9]).replace("empty", "").replace("text:", "").replace("'", "").replace(".",
+                                                                                                          "").replace(
+                    "number", "").replace(":", "").replace("0", ""))
+            # batch_Names_wanted9.append(
+            # str(sheet.row(row)[9]).replace("empty", "").replace("text:", "").replace("'", "").replace(".",
+            # "").replace(
+            # "number", "").replace(":", ""))
+
+    tab_control = ttk.Notebook(window)
+    tab1 = ttk.Frame(tab_control)
+    tab_control.add(tab1, text='ID,ИФ, Оценка')
+
+    lbl1 = Label(tab1, text='\n'.join(batch_Names_wanted))
+    lbl1.place(x=0, y=0)
+    lbl2 = Label(tab1, text='\n'.join(batch_Names_wanted1))
+    lbl2.place(x=60, y=0)
+    lbl3 = Label(tab1, text='\n'.join(batch_Names_wanted2))
+    lbl3.place(x=90, y=0)
+    lbl4 = Label(tab1, text='\n'.join(batch_Names_wanted3))
+    lbl4.place(x=285, y=0)
+    lbl5 = Label(tab1, text='\n'.join(batch_Names_wanted4))
+    lbl5.place(x=315, y=0)
+    lbl6 = Label(tab1, text='\n'.join(batch_Names_wanted5))
+    lbl6.place(x=575, y=0)
+    lbl7 = Label(tab1, text='\n'.join(batch_Names_wanted6))
+    lbl7.place(x=365, y=0)
+    lbl8 = Label(tab1, text='\n'.join(batch_Names_wanted7))
+    lbl8.place(x=465, y=0)
+    lbl9 = Label(tab1, text='\n'.join(batch_Names_wanted8))
+    lbl9.place(x=520, y=0)
+
+    tab_control.pack(expand=1, fill='both')
+
+def n_w6(event):
+    window = Toplevel(root)
+    window.geometry('750x300')
+    window.config(bg="#40e3e0")
+    window.title('Мартовские оценки')
+
+    excel_data_file = xlrd.open_workbook('./Оценки за 1 год/Оценки за Март.xlsx')
+    sheet = excel_data_file.sheet_by_index(0)
+
+    batch_Names_wanted = []
+    batch_Names_wanted1 = []
+    batch_Names_wanted2 = []
+    batch_Names_wanted3 = []
+    batch_Names_wanted4 = []
+    batch_Names_wanted5 = []
+    batch_Names_wanted6 = []
+    batch_Names_wanted7 = []
+    batch_Names_wanted8 = []
+
+    row_number = sheet.nrows
+
+    if row_number > 0:
+        for row in range(0, row_number):
+            batch_Names_wanted.append(
+                str(sheet.row(row)[0]).replace("text:", "").replace("'", "").replace(":", "").replace(".",
+                                                                                                      "").replace(
+                    "number", "").replace("0", "").replace("empty", ""))
+            batch_Names_wanted1.append(
+                str(sheet.row(row)[1]).replace("empty", "").replace("text:", "").replace("'", "").replace(".",
+                                                                                                          "").replace(
+                    "number", "").replace(":", "").replace("0", ""))
+            batch_Names_wanted2.append(
+                str(sheet.row(row)[2]).replace("empty", "").replace("text:", "").replace("'", "").replace(".",
+                                                                                                          "").replace(
+                    "number", "").replace(":", "").replace("0", ""))
+            batch_Names_wanted3.append(
+                str(sheet.row(row)[3]).replace("empty", "").replace("text:", "").replace("'", "").replace(".",
+                                                                                                          "").replace(
+                    "number", "").replace(":", "").replace("0", ""))
+            batch_Names_wanted4.append(
+                str(sheet.row(row)[4]).replace("empty", "").replace("text:", "").replace("'", "").replace(".",
+                                                                                                          "").replace(
+                    "number", "").replace(":", "").replace("0", ""))
+            batch_Names_wanted5.append(
+                str(sheet.row(row)[5]).replace("empty", "").replace("text:", "").replace("'", "").replace(".",
+                                                                                                          "").replace(
+                    "number", "").replace(":", "").replace("0", ""))
+            batch_Names_wanted6.append(
+                str(sheet.row(row)[6]).replace("empty", "").replace("text:", "").replace("'", "").replace(".",
+                                                                                                          "").replace(
+                    "number", "").replace(":", "").replace("0", ""))
+            batch_Names_wanted7.append(
+                str(sheet.row(row)[7]).replace("empty", "").replace("text:", "").replace("'", "").replace(".",
+                                                                                                          "").replace(
+                    "number", "").replace(":", "").replace("0", ""))
+            batch_Names_wanted8.append(
+                str(sheet.row(row)[9]).replace("empty", "").replace("text:", "").replace("'", "").replace(".",
+                                                                                                          "").replace(
+                    "number", "").replace(":", "").replace("0", ""))
+            # batch_Names_wanted9.append(
+            # str(sheet.row(row)[9]).replace("empty", "").replace("text:", "").replace("'", "").replace(".",
+            # "").replace(
+            # "number", "").replace(":", ""))
+
+    tab_control = ttk.Notebook(window)
+    tab1 = ttk.Frame(tab_control)
+    tab_control.add(tab1, text='ID,ИФ, Оценка')
+
+    lbl1 = Label(tab1, text='\n'.join(batch_Names_wanted))
+    lbl1.place(x=0, y=0)
+    lbl2 = Label(tab1, text='\n'.join(batch_Names_wanted1))
+    lbl2.place(x=60, y=0)
+    lbl3 = Label(tab1, text='\n'.join(batch_Names_wanted2))
+    lbl3.place(x=90, y=0)
+    lbl4 = Label(tab1, text='\n'.join(batch_Names_wanted3))
+    lbl4.place(x=285, y=0)
+    lbl5 = Label(tab1, text='\n'.join(batch_Names_wanted4))
+    lbl5.place(x=315, y=0)
+    lbl6 = Label(tab1, text='\n'.join(batch_Names_wanted5))
+    lbl6.place(x=575, y=0)
+    lbl7 = Label(tab1, text='\n'.join(batch_Names_wanted6))
+    lbl7.place(x=365, y=0)
+    lbl8 = Label(tab1, text='\n'.join(batch_Names_wanted7))
+    lbl8.place(x=465, y=0)
+    lbl9 = Label(tab1, text='\n'.join(batch_Names_wanted8))
+    lbl9.place(x=520, y=0)
+
+    tab_control.pack(expand=1, fill='both')
+
+
+
+def n_w7(event):
+    window = Toplevel(root)
+    window.geometry('750x300')
+    window.config(bg="#40e3e0")
+    window.title('Мартовские оценки')
+
+    excel_data_file = xlrd.open_workbook('./Оценки за 1 год/Оценки за Март.xlsx')
+    sheet = excel_data_file.sheet_by_index(0)
+
+    batch_Names_wanted = []
+    batch_Names_wanted1 = []
+    batch_Names_wanted2 = []
+
+    row_number = sheet.nrows
+
+    if row_number > 0:
+        for row in range(0, row_number):
+            batch_Names_wanted.append(
+                str(sheet.row(row)[0]).replace("text:", "").replace("'", "").replace(":", "").replace(".", "").replace(
+                    "number", "").replace("0", "").replace("empty", "").replace(":", ""))
+            batch_Names_wanted1.append(
+                str(sheet.row(row)[1]).replace("text:", "").replace("empty", "").replace("'", "").replace(".", "").replace("number", "").replace(":", ""))
+            batch_Names_wanted2.append(
+                str(sheet.row(row)[2]).replace("text:", "").replace("'", "").replace(".", "").replace(
+                    "number", "").replace("empty", "").replace(":", ""))
+
+
+    tab_control = ttk.Notebook(window)
+    tab1 = ttk.Frame(tab_control)
+    tab_control.add(tab1, text='ID,ИФ, Оценка')
+
+    lbl1 = Label(tab1, text='\n'.join(batch_Names_wanted))
+    lbl1.grid(column=1, row=0)
+    lbl2 = Label(tab1, text='\n'.join(batch_Names_wanted1))
+    lbl2.grid(column=2, row=0)
+    tab_control.pack(expand=1, fill='both')
+
+def n_w1(event):
+    window = Toplevel(root)
+    window.geometry('750x300')
+    window.config(bg="#40e3e0")
+
+    btn = Button(window, text="Январь")
+    btn.place(x=90, y=120, width=150, height=90)
+
+    btn = Button(window, text="Февраль")
+    btn.place(x=90, y=120, width=150, height=90)
+
+    btn = Button(window, text="Апрель")
+    btn.place(x=90, y=120, width=150, height=90)
+
+    btn = Button(window, text="Май")
+    btn.place(x=90, y=120, width=150, height=90)
+
+    btn = Button(window, text="Июнь")
+    btn.place(x=90, y=120, width=150, height=90)
+
+    btn = Button(window, text="Июль")
+    btn.place(x=90, y=120, width=150, height=90)
+
+    btn = Button(window, text="Август")
+    btn.place(x=90, y=120, width=150, height=90)
+
+    btn = Button(window, text="Сентябрь")
+    btn.place(x=90, y=120, width=150, height=90)
+
+    btn = Button(window, text="Октябрь")
+    btn.place(x=90, y=120, width=150, height=90)
+
+    btn = Button(window, text="Ноябрь")
+    btn.place(x=90, y=120, width=150, height=90)
+
+    btn = Button(window, text="Декабрь")
+    btn.place(x=90, y=120, width=150, height=90)
+
+
+
+
+
+def n_w2(event):
+    window = Toplevel(root)
+    window.geometry('600x40')
+    window.config(bg="#40e3e2")
+
+    btn1 = Button(window, text="Январь")
+    btn1.place(x=20, y=10, width=60, height=20)
+
+
+    btn2 = Button(window, text="Февраль")
+    btn2.place(x=80, y=10, width=60, height=20)
+
+    btn3 = Button(window, text="Апрель")
+    btn3.place(x=140, y=10, width=60, height=20)
+
+    btn4 = Button(window, text="Май")
+    btn4.place(x=200, y=10, width=60, height=20)
+
+    btn5 = Button(window, text="Сентябрь")
+    btn5.place(x=260, y=10, width=60, height=20)
+
+    btn6 = Button(window, text="Октябрь")
+    btn6.place(x=320, y=10, width=60, height=20)
+
+    btn7 = Button(window, text="Ноябрь")
+    btn7.place(x=380, y=10, width=60, height=20)
+
+    btn8 = Button(window, text="Декабрь")
+    btn8.place(x=440, y=10, width=60, height=20)
+
+    btn9 = Button(window, text="Март")
+    btn9.place(x=500, y=10, width=60, height=20)
+
+    btn1.bind("<Button-1>", n_w4)
+    btn2.bind("<Button-1>", n_w5)
+    btn9.bind("<Button-1>", n_w6)
+
+
+
+def n_w3(event):
+    window = Toplevel(root)
+    window.geometry('750x300')
+    window.config(bg="#40e3e1")
+
+    btn0 = Button(window, text = "Январь")
+    btn0.place(x=9, y=12, width = 15, height = 9)
+
+
+    btn1 = Button(window, text="Март")
+    btn1.place(x=18, y=21, width=15, height=9)
+
+
+    btn2 = Button(window, text="Апрель")
+    btn2.place(x=27, y=30, width=15, height=9)
+
+    btn3 = Button(window, text="Май")
+    btn3.place(x=36, y=39, width=15, height=9)
+
+    btn4 = Button(window, text="Июнь")
+    btn4.place(x=45, y=48, width=150, height=90)
+
+    btn5 = Button(window, text="Июль")
+    btn5.place(x=54, y=57, width=15, height=9)
+
+    btn6 = Button(window, text="Август")
+    btn6.place(x=63, y=120, width=15, height=9)
+
+    btn7 = Button(window, text="Сентябрь")
+    btn7.place(x=72, y=120, width=15, height=9)
+
+    btn8 = Button(window, text="Октябрь")
+    btn8.place(x=81, y=120, width=15, height=9)
+
+    btn9 = Button(window, text="Ноябрь")
+    btn9.place(x=90, y=120, width=15, height=9)
+
+    btn10 = Button(window, text="Декабрь")
+    btn10.place(x=99, y=120, width=15, height=9)
+
+
+
+
+
+    excel_data_file = xlrd.open_workbook('./Оценки за 1 год/Рассписание.xlsx')
+    sheet = excel_data_file.sheet_by_index(0)
+
+    batch_Names_wanted = []
+    batch_Names_wanted1 = []
+
+    row_number = sheet.nrows
+
+    if row_number > 0:
+         for row in range(0, row_number):
+             batch_Names_wanted.append(
+                 str(sheet.row(row)[0]).replace("text:", "").replace("'", "").replace(":", "").replace(".", "").replace(
+                     "number", "").replace("0", ""))
+             batch_Names_wanted1.append(
+                 str(sheet.row(row)[1]).replace("text:", "").replace("'", "").replace(".", "").replace(
+                     "number", ""))
+
+
+    tab_control = ttk.Notebook(window)
+    tab1 = ttk.Frame(tab_control)
+    tab_control.add(tab1, text='Номер урока, Начало-Конец')
+
+    lbl1 = Label(tab1, text='\n'.join(batch_Names_wanted))
+    lbl1.grid(column=1, row=0)
+    lbl2 = Label(tab1, text='\n'.join(batch_Names_wanted1))
+    lbl2.grid(column=2, row=0)
+    tab_control.pack(expand=1, fill='both')
+
+
+
+
+
+# Первый ряд
+
+btn = Button(root,text = "Журнал")
+btn.place(x=90, y=120, width=150, height = 90)
+
+
+btn1 = Button(root, text = "Контроль посещаемости")
+btn1.place(x=300, y=120, width=180, height = 90)
+
+
+btn2 = Button(root, text = "Рассписание")
+btn2.place(x=520, y=120, width=150, height = 90)
+
+
+
+btn.bind("<Button-1>", n_w1)
+btn1.bind("<Button-1>", n_w2)
+btn2.bind("<Button-1>", n_w3)
+
+
+
+
+
+
+root.mainloop()
